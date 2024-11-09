@@ -21,7 +21,8 @@ Step-1
 Step 2
     ### Build docker image
     cd MagicMindsAssignmant
-    docker-compose up --build
+    sudo docker-compose up --build  (For linux system)
+    docker-compose up --build  (For Windows system)
 
 
 
