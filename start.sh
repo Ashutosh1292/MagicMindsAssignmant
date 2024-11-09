@@ -1,15 +1,10 @@
 #!/bin/bash
 
-# Run docker-compose to build and start the services in the background
-docker-compose up --build &
+# Start Docker containers in the background
+docker-compose up --build -d
 
-# Wait for a few seconds to allow the service to start (adjust time as needed)
-sleep 3
+# Wait for 5 seconds to ensure containers have started
+sleep 2
 
-# Open the default browser to access the application
-# Linux
-xdg-open http://127.0.0.1:8000 2>/dev/null ||
-# macOS
-open http://127.0.0.1:8000 2>/dev/null ||
-# Windows (using PowerShell)
-powershell.exe start http://127.0.0.1:8000
+# Open the URL in the default web browser
+xdg-open http://127.0.0.1:8000
