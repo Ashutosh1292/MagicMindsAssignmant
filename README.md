@@ -30,7 +30,7 @@ Step 2
 
     ## Build docker image Option 2 (Directly open project in browser)
     ###For Linux system
-    `chmod +x start.sh
+    chmod +x start.sh
     ./start.sh
     ###For Windows system
     .\start.bat 
