@@ -39,4 +39,8 @@ ENV DJANGO_SETTINGS_MODULE=product_store_assignment.settings
 # RUN python manage.py migrate
 # RUN docker-compose exec web python manage.py migrate
 # Run the migrations and start the server
+RUN adduser --disabled-password --gecos '' appuser && chown -R appuser /app
+
+# Switch to the new user
+USER appuser
 CMD ["bash", "-c", "python manage.py collectstatic && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
