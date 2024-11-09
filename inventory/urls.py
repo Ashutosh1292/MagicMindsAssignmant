@@ -10,5 +10,4 @@ urlpatterns=[
     path("search",SearchProduct.as_view(),name="search"),
     path("add_sales",AddSales.as_view(),name="add_sales"),
     path("get_score",GetProductScore.as_view(),name="get_score")
-
 ]
