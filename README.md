@@ -15,14 +15,25 @@ To get started, first clone the repository:
 
 ```bash
 Step-1
-    ### Clone the repository
+    ## Clone the repository
     git clone https://github.com/Ashutosh1292/MagicMindsAssignmant.git
 
 Step 2
-    ### Build docker image
+    
     cd MagicMindsAssignmant
-    sudo docker-compose up --build  (For linux system)
-    docker-compose up --build  (For Windows system)
+
+    ## Build docker image Option 1
+    ###For Linux system
+    sudo docker-compose up --build
+    ###For Windows system
+    docker-compose up --build 
+
+    ## Build docker image Option 2 (Directly open project in browser)
+    ###For Linux system
+    `chmod +x start.sh
+    ./start.sh
+    ###For Windows system
+    .\start.bat 
 
 
 
