@@ -134,6 +134,7 @@ class AddSales(GenericAPIView):
             return Response({"status": 400, "message": str(e)}, status=status.HTTP_400_BAD_REQUEST)
         
 class GetProductScore(GenericAPIView):
+    serializer_class = ProductSerializer
     def get(self,request):
         try:
             # products = Products.objects.annotate(sale_count=Count('salelog')) 
