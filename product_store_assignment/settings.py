@@ -44,9 +44,9 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',  # Allow any user to access the API
+        'rest_framework.permissions.AllowAny',  
     ],
-    'DEFAULT_AUTHENTICATION_CLASSES': [],  # No authentication required
+    'DEFAULT_AUTHENTICATION_CLASSES': [], 
 }
 
 MIDDLEWARE = [
@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': 'MagicMinds',
         'USER': 'user',
         'PASSWORD': '123',
-        'HOST': 'db',  # This should be the name of your DB service in Docker Compose
+        'HOST': 'db',  
         'PORT': '5432',
     }
 }
