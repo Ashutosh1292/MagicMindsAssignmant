@@ -142,10 +142,12 @@ class GetProductScore(GenericAPIView):
   
             products_list = []
             for product in products:
+                popularity_score = product.total_sale_quantity * 0.1 if product.total_sale_quantity else 0
                 products_list.append({
                     'id': product.id,
                     'name': product.name,
-                    'total_sale_quantity': product.total_sale_quantity or 0 
+                    'total_sale_quantity': product.total_sale_quantity or 0 ,
+                    "popularity_score":popularity_score
                 })
             
             response = {
