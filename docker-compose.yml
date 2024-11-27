@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 
 services:
   web:
@@ -6,7 +6,6 @@ services:
     command: >
       sh -c "python manage.py makemigrations &&
              python manage.py migrate &&
-             python manage.py runserver 0.0.0.0:8000 &&
              gunicorn product_store_assignment.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - .:/app
@@ -16,6 +15,7 @@ services:
       - db
     environment:
       - PYTHONUNBUFFERED=1
+      - DJANGO_SETTINGS_MODULE=product_store_assignment.settings
 
   db:
     image: postgres:13
