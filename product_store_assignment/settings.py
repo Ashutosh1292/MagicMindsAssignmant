@@ -133,7 +133,7 @@ USE_TZ = True
 
 # settings.py
 
-STATIC_URL = '/static/'
+STATIC_URL = "/app/static"
 
 # Make sure you collect static files (when you run in production)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
