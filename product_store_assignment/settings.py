@@ -143,7 +143,7 @@ STATICFILES_DIRS = [
 # If you are in development mode, this helps Django serve static files
 if DEBUG:
     STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'static'),  # Your static files directory
+        os.path.join(BASE_DIR, "/app/static"),  # Your static files directory
     ]
 
 
