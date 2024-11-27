@@ -138,12 +138,12 @@ STATIC_URL = '/static/'
 # Make sure you collect static files (when you run in production)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    BASE_DIR / "app/static",  # Adjust as needed based on your project structure
+    BASE_DIR / "static",  # Adjust as needed based on your project structure
 ]
 # If you are in development mode, this helps Django serve static files
 if DEBUG:
     STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, '/app/static'),  # Your static files directory
+        os.path.join(BASE_DIR, 'static'),  # Your static files directory
     ]
 
 
