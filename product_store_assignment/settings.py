@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-y#lqv20sf+r(wk*cy)c+ta!ygwr151aek)_w6r5qq+9j*z!+yp
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-
+# Allow all origins (development only)
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
@@ -39,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'inventory',
     'rest_framework',
-    'drf_yasg'
+    'drf_yasg',
+    "corsheaders"
 ]
 
 REST_FRAMEWORK = {
@@ -57,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'product_store_assignment.urls'
@@ -85,14 +88,29 @@ WSGI_APPLICATION = 'product_store_assignment.wsgi.application'
 
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'MagicMinds',
+#         'USER': 'user',
+#         'PASSWORD': '123',
+#         'HOST': 'db',  
+#         'PORT': '5432',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'MagicMinds',
-        'USER': 'user',
-        'PASSWORD': '123',
-        'HOST': 'db',  
-        'PORT': '5432',
+        'TEST': {
+            'NAME': 'test_MagicMinds',  # Explicit test database name
+        },
+        'USER': 'ashutosh',
+        'PASSWORD': '1292',
+        'HOST': 'db',  # Use the container's name here
+        'PORT': '3306',
     }
 }
 
@@ -115,6 +133,35 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+import os
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'ERROR',
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'error.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['console', 'file'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/

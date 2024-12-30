@@ -9,5 +9,7 @@ urlpatterns=[
     path("deleate_product",DeleteProduct.as_view(),name="deleate_product"),
     path("search",SearchProduct.as_view(),name="search"),
     path("add_sales",AddSales.as_view(),name="add_sales"),
-    path("get_score",GetProductScore.as_view(),name="get_score")
+    path("get_score",GetProductScore.as_view(),name="get_score"),
+    path("get_query",allQueries.as_view(),name="get_query"),
+    path("sale_log",GetSellLog.as_view(),name="sale_log")
 ]

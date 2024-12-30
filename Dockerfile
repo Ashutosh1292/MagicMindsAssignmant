@@ -8,10 +8,18 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     pkg-config \
     && apt-get clean
-RUN apt-get update && apt-get install -y wget && \
+    
+RUN apt-get update && apt-get install -y wget default-jre && apt-get install -y gcc default-jre libmariadb-dev pkg-config &&\
     wget https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz && \
     tar -xzvf dockerize-linux-amd64-v0.6.1.tar.gz && \
     mv dockerize /usr/local/bin/
+    
+
+
+# Set JAVA_HOME
+# ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+# ENV PATH="$JAVA_HOME/bin:$PATH"
+
 
 COPY requirements.txt /app/
 

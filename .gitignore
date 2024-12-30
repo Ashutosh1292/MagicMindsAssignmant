@@ -1,1 +1,4 @@
-inventory\__pycache__\
+# Ignore compiled Python files
+inventory/__pycache__/
+product_store_assignment/__pycache__/
+inventory/migrations/
